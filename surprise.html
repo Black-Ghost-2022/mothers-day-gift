@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Mother's Day!</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #fff0f5;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-y: auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card {
+      max-width: 600px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .heart {
+      position: absolute;
+      color: red;
+      font-size: 24px;
+      animation: floatUp 4s ease-out forwards;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    #finalMessage {
+      display: none;
+      margin-top: 20px;
+      animation: fadeIn 3s ease-in;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-200px); opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <!-- 🎶 Background Music -->
+  <audio autoplay loop hidden>
+    <source src="https://cdn.pixabay.com/audio/2023/03/28/audio_39c9a19b77.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="card">
+    <h1>✨ One Last Riddle ✨</h1>
+    <p style="font-size: 18px;">
+      Before you were ever called <strong>Mom</strong>, you were given a name full of love. What is it?
+    </p>
+    <input id="nameAnswer" placeholder="Her name..." />
+    <button onclick="checkName()">Submit</button>
+
+    <!-- 💌 Hidden Message -->
+    <div id="finalMessage">
+      <h2>💐 Happy Mother’s Day, 💐</h2>
+      <p style="font-size: 18px; line-height: 1.6; max-width: 600px; margin: auto;">
+        Dear Mom,<br><br>
+        Today, we celebrate you — the woman who gave life, love, and endless strength.  
+        You’ve been my guiding light, my safe place, my warm hug at the end of a long day.  
+        Your kindness, your sacrifices, and your beautiful heart have shaped who I am.<br><br>
+        You always knew when to listen, when to encourage, and when to just hold me quietly.  
+        I may not say it enough, but I carry your love with me in everything I do.<br><br>
+        Thank you for every bedtime story, every packed lunch, every smile through your tired eyes.  
+        You are the heartbeat of our home, the soul of our family, and my forever hero.<br><br>
+        I love you more than words can say. 💖<br><br>
+        With all my heart,<br>
+        Your Son, Herman 💌
+      </p>
+      <br>
+      <button onclick="showHearts()">Send More Love ❤️</button>
+    </div>
+  </div>
+
+  <script>
+    function checkName() {
+      const input = document.getElementById("nameAnswer").value.trim().toLowerCase();
+      if (input === "everlyn") {
+        document.getElementById("finalMessage").style.display = "block";
+        document.getElementById("nameAnswer").style.display = "none";
+        event.target.style.display = "none";
+        showHearts();
+      } else {
+        alert("That’s not quite right. Try again.");
+      }
+    }
+
+    function showHearts() {
+      for (let i = 0; i < 20; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerText = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = "90%";
+        heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 4000);
+      }
+    }
+  </script>
+</body>
+</html>

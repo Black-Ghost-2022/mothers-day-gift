@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riddle 1</title>
+  <style>
+    body {
+      background: #fff0f5;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-y: auto;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .card {
+      width: 90%;
+      max-width: 600px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      animation: fadeIn 2s ease-in;
+    }
+
+    h1 {
+      font-size: 4vw;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 2vw;
+      line-height: 1.6;
+      max-width: 80%;
+      margin: auto;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 2vw;
+      margin-top: 20px;
+      width: 80%;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 2vw;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🌸 First Riddle 🌸</h1>
+    <p>What is full of holes but still holds a lot of weight?</p>
+    <input type="text" placeholder="Type your answer..." id="answer">
+    <button onclick="checkAnswer()">Submit</button>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const answer = document.getElementById('answer').value.trim().toLowerCase();
+      if (answer === 'sponge') {
+        alert('Well done!');
+        window.location.href = 'riddle2.html'; // Redirect to next riddle
+      } else {
+        alert('Oops, try again!');
+      }
+    }
+  </script>
+</body>
+</html>
+
